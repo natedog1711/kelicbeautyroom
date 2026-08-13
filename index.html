@@ -176,7 +176,7 @@
     box-shadow:var(--shadow);
     aspect-ratio: 4/5;
   }
-  .about-photo img{ width:100%; height:100%; object-fit:cover; }
+  .about-photo img{ width:100%; height:100%; object-fit:cover; object-position:center 15%; }
   .about h2{ font-size:clamp(30px,4vw,42px); margin-bottom:16px; }
   .about p{ color:var(--wine-700); font-size:16.5px; margin-bottom:16px; max-width:520px; }
   .patch-note{
@@ -264,14 +264,15 @@
   .gallery-grid{
     display:grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 160px;
+    grid-auto-rows: 260px;
     gap:16px;
   }
   .gallery-grid figure{
     margin:0; position:relative; overflow:hidden; border-radius:18px;
     box-shadow:0 10px 24px -12px rgba(74,14,40,.3);
+    background:var(--blush-100);
   }
-  .gallery-grid figure img{ width:100%; height:100%; object-fit:cover; transition:transform .6s ease; }
+  .gallery-grid figure img{ width:100%; height:100%; object-fit:contain; object-position:center; transition:transform .6s ease; }
   .gallery-grid figure:hover img{ transform:scale(1.08); }
   .gallery-grid figure::after{
     content:''; position:absolute; inset:0;
@@ -333,7 +334,7 @@
     .hero-actions{ justify-content:center; }
     .about-grid{ grid-template-columns:1fr; }
     .about-photo{ max-width:380px; margin:0 auto; }
-    .gallery-grid{ grid-template-columns:repeat(2,1fr); grid-auto-rows:190px; }
+    .gallery-grid{ grid-template-columns:repeat(2,1fr); grid-auto-rows:220px; }
     .g1{ grid-column:span 2; }
     .footer-grid{ grid-template-columns:1fr; gap:30px; }
   }
@@ -407,7 +408,7 @@
 <section class="about" id="about">
   <div class="container about-grid">
     <div class="about-photo">
-      <img src="gallery-brow-2.jpg" alt="Feathered brow lamination result by Kelsi">
+      <img src="kelsi-certificate.png" alt="Kelsi McLaughlin with her Luxury Facials &amp; Skin Care certificate">
     </div>
     <div>
       <span class="eyebrow">a little</span>
@@ -535,6 +536,7 @@
       <figure class="g2"><img src="gallery-nails-dots.jpg" alt="Deep red polka dot nail set with French tip accent"></figure>
       <figure class="g3"><img src="gallery-brow-1.jpg" alt="Natural brow lamination result"></figure>
       <figure class="g4"><img src="gallery-brow-2.jpg" alt="Feathered fluffy brow lamination result"></figure>
+      <figure class="g3"><img src="gallery-nails-french.jpg" alt="French tip nails with black polka dot detail"></figure>
     </div>
     <p class="gallery-note">See more on <a href="https://www.instagram.com/kelsibeautyroom_/" target="_blank" rel="noopener">Instagram</a> and <a href="https://www.facebook.com/Kelsibeautyroom" target="_blank" rel="noopener">Facebook</a>.</p>
   </div>
