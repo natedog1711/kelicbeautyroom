@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kelsi's Beauty Room — Nails · Brows · Lashes · Skincare</title>
+<meta name="description" content="Kelsi's Beauty Room — nails, brows, lashes and skincare. Book your appointment online.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Mrs+Sheppards&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blush-50:#fff4f8;
+    --blush-100:#ffe8f1;
+    --blush-200:#ffd3e6;
+    --pink-300:#ffb3d4;
+    --pink-400:#ff8fc0;
+    --cherry-500:#e21a5c;
+    --cherry-600:#c81450;
+    --cherry-700:#a10f42;
+    --wine-900:#4a0e28;
+    --wine-700:#6b1938;
+    --cream:#fffbfc;
+    --gold-400:#d9a94e;
+    --gold-300:#e8c37e;
+    --ink:#3a1223;
+    --shadow: 0 20px 50px -20px rgba(74,14,40,0.35);
+    --radius: 22px;
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    font-family:'Manrope', sans-serif;
+    color:var(--ink);
+    background:var(--blush-50);
+    -webkit-font-smoothing:antialiased;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; text-decoration:none; }
+  .script{ font-family:'Mrs Sheppards', cursive; font-weight:400; }
+  .serif{ font-family:'Fraunces', serif; }
+  h1,h2,h3{ margin:0; font-family:'Fraunces', serif; color:var(--wine-900); }
+  p{ margin:0; line-height:1.65; }
+  .container{ max-width:1180px; margin:0 auto; padding:0 24px; }
+  .eyebrow{
+    font-family:'Mrs Sheppards', cursive;
+    font-size:clamp(28px,4vw,40px);
+    color:var(--cherry-600);
+    display:inline-block;
+    margin-bottom:-6px;
+  }
+  section{ position:relative; }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:15px 30px;
+    border-radius:999px;
+    font-weight:700;
+    font-size:15px;
+    letter-spacing:.02em;
+    cursor:pointer;
+    border:2px solid transparent;
+    transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+    white-space:nowrap;
+  }
+  .btn:hover{ transform:translateY(-2px); }
+  .btn-primary{
+    background:linear-gradient(135deg, var(--cherry-500), var(--cherry-700));
+    color:#fff;
+    box-shadow:0 12px 28px -10px rgba(200,20,80,0.55);
+  }
+  .btn-primary:hover{ box-shadow:0 16px 34px -10px rgba(200,20,80,0.65); }
+  .btn-ghost{
+    background:transparent;
+    border-color:var(--wine-900);
+    color:var(--wine-900);
+  }
+  .btn-ghost:hover{ background:var(--wine-900); color:#fff; }
+  .btn-light{
+    background:#fff;
+    color:var(--cherry-600);
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(255,244,248,0.85);
+    backdrop-filter: blur(10px);
+    border-bottom:1px solid rgba(200,20,80,0.08);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 24px;
+  }
+  .brandmark{ display:flex; align-items:center; gap:10px; }
+  .brandmark img{ width:44px; height:44px; border-radius:50%; object-fit:cover; box-shadow:0 4px 14px rgba(200,20,80,.3); }
+  .brandmark span{ font-family:'Mrs Sheppards',cursive; font-size:26px; color:var(--cherry-600); }
+  nav.links{ display:flex; gap:32px; align-items:center; }
+  nav.links a{ font-size:14.5px; font-weight:600; color:var(--wine-900); position:relative; padding:4px 0; }
+  nav.links a::after{
+    content:''; position:absolute; left:0; bottom:-2px; width:0; height:2px; background:var(--cherry-500);
+    transition:width .25s ease;
+  }
+  nav.links a:hover::after{ width:100%; }
+  .nav-cta{ display:flex; align-items:center; gap:18px; }
+  .burger{ display:none; background:none; border:none; cursor:pointer; padding:6px; }
+  .burger span{ display:block; width:24px; height:2px; background:var(--wine-900); margin:5px 0; border-radius:2px; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:
+      radial-gradient(60% 50% at 85% 10%, rgba(255,255,255,.5), transparent 60%),
+      linear-gradient(160deg, var(--blush-100) 0%, var(--pink-300) 60%, var(--pink-400) 100%);
+    overflow:hidden;
+    padding:76px 0 40px;
+  }
+  .hero-inner{
+    display:grid; grid-template-columns: 1.05fr 0.95fr; align-items:center; gap:40px;
+  }
+  .hero-eyebrow{ font-family:'Mrs Sheppards',cursive; color:var(--cherry-600); font-size:clamp(26px,3.4vw,34px); }
+  .hero h1{
+    font-size:clamp(40px,6vw,68px);
+    line-height:1.02;
+    font-weight:600;
+    margin:6px 0 18px;
+    color:var(--wine-900);
+  }
+  .hero h1 em{ font-style:italic; color:var(--cherry-600); }
+  .hero-tagline{
+    font-size:15.5px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    font-weight:700;
+    color:var(--wine-700);
+    margin-bottom:26px;
+  }
+  .hero-tagline .dot{ color:var(--gold-400); margin:0 10px; }
+  .hero-desc{ max-width:440px; color:var(--wine-700); font-size:16.5px; margin-bottom:32px; }
+  .hero-actions{ display:flex; gap:16px; flex-wrap:wrap; }
+  .hero-art{ position:relative; display:flex; align-items:center; justify-content:center; }
+  .hero-art .ring{
+    position:absolute; inset:0; margin:auto; width:min(420px,92%); aspect-ratio:1/1;
+    border-radius:50%;
+    border:1.5px solid rgba(200,20,80,0.35);
+  }
+  .hero-art .ring.r2{ width:min(460px,98%); border-color:rgba(200,20,80,0.18); }
+  .hero-art img.logo-hero{
+    position:relative; z-index:2;
+    width:min(360px,80%);
+    border-radius:50%;
+    box-shadow:0 30px 60px -20px rgba(74,14,40,.45);
+    animation: floaty 6s ease-in-out infinite;
+  }
+  @keyframes floaty{ 0%,100%{ transform:translateY(0);} 50%{ transform:translateY(-14px);} }
+  .sparkle{ position:absolute; color:var(--gold-400); }
+
+  /* ---------- RIBBON DIVIDER (signature element) ---------- */
+  .ribbon{ display:block; width:100%; height:auto; }
+  .ribbon-wrap{ line-height:0; margin-top:-2px; }
+
+  /* ---------- ABOUT STRIP ---------- */
+  .about{
+    background:var(--cream);
+    padding:70px 0 90px;
+  }
+  .about-grid{
+    display:grid; grid-template-columns: 0.85fr 1.15fr; gap:56px; align-items:center;
+  }
+  .about-photo{
+    position:relative;
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    aspect-ratio: 4/5;
+  }
+  .about-photo img{ width:100%; height:100%; object-fit:cover; }
+  .about h2{ font-size:clamp(30px,4vw,42px); margin-bottom:16px; }
+  .about p{ color:var(--wine-700); font-size:16.5px; margin-bottom:16px; max-width:520px; }
+  .patch-note{
+    margin-top:26px;
+    display:flex; gap:14px; align-items:flex-start;
+    background:var(--blush-100);
+    border:1px dashed var(--pink-400);
+    padding:16px 18px;
+    border-radius:14px;
+    max-width:520px;
+  }
+  .patch-note svg{ flex-shrink:0; margin-top:2px; }
+  .patch-note p{ font-size:14px; color:var(--wine-900); margin:0; }
+
+  /* ---------- SERVICES ---------- */
+  .services{ padding:90px 0 60px; background:var(--blush-50); }
+  .section-head{ text-align:center; max-width:640px; margin:0 auto 46px; }
+  .section-head h2{ font-size:clamp(32px,4.4vw,46px); margin:6px 0 14px; }
+  .section-head p{ color:var(--wine-700); font-size:16px; }
+
+  .tabs{
+    display:flex; justify-content:center; gap:10px; flex-wrap:wrap;
+    margin-bottom:40px;
+  }
+  .tab-btn{
+    padding:11px 22px; border-radius:999px; border:1.5px solid var(--pink-300);
+    background:#fff; font-weight:700; font-size:14px; color:var(--wine-700);
+    cursor:pointer; transition:all .25s ease;
+  }
+  .tab-btn.active, .tab-btn:hover{
+    background:var(--cherry-600); border-color:var(--cherry-600); color:#fff;
+  }
+
+  .menu-card{
+    display:none;
+    background:var(--cream);
+    border-radius:28px;
+    padding:clamp(28px,4vw,54px);
+    box-shadow:var(--shadow);
+    max-width:920px;
+    margin:0 auto;
+  }
+  .menu-card.active{ display:block; animation: fadein .4s ease; }
+  @keyframes fadein{ from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);} }
+
+  .menu-group{ margin-bottom:34px; }
+  .menu-group:last-child{ margin-bottom:0; }
+  .menu-group-title{
+    font-family:'Fraunces', serif; font-style:italic; font-weight:500;
+    color:var(--cherry-600); font-size:22px; margin-bottom:16px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .menu-group-title::before, .menu-group-title::after{
+    content:''; flex:1; height:1px; background:var(--pink-300);
+  }
+  .menu-row{
+    display:flex; align-items:baseline; gap:10px;
+    padding:12px 0;
+    border-bottom:1px solid rgba(200,20,80,0.1);
+  }
+  .menu-row:last-child{ border-bottom:none; }
+  .menu-row .name{ font-weight:700; color:var(--wine-900); font-size:15.5px; }
+  .menu-row .leader{ flex:1; border-bottom:1.5px dotted rgba(74,14,40,0.28); transform:translateY(-4px); min-width:16px; }
+  .menu-row .price{ font-family:'Fraunces', serif; font-weight:600; color:var(--cherry-600); font-size:17px; white-space:nowrap; }
+  .menu-row .desc{ display:block; font-size:13px; color:var(--wine-700); opacity:.85; margin-top:2px; font-weight:400; }
+  .menu-row-wrap{ display:flex; flex-direction:column; flex:1; }
+  .menu-row .name-line{ display:flex; align-items:baseline; gap:10px; }
+
+  .nailart-box{
+    margin-top:8px; background:var(--blush-100); border-radius:18px; padding:22px;
+    display:flex; justify-content:space-around; text-align:center; flex-wrap:wrap; gap:16px;
+  }
+  .nailart-box div{ min-width:100px; }
+  .nailart-box .tier{ font-size:12.5px; letter-spacing:.1em; text-transform:uppercase; font-weight:700; color:var(--wine-700); }
+  .nailart-box .from{ font-size:11px; color:var(--wine-700); opacity:.7; margin-top:2px; }
+  .nailart-box .amt{ font-family:'Fraunces',serif; font-size:26px; color:var(--cherry-600); font-weight:600; }
+
+  .upgrade-note{
+    text-align:center; margin-top:30px; font-size:14px; color:var(--wine-700);
+    background:var(--blush-100); padding:14px; border-radius:14px;
+  }
+
+  /* ---------- GALLERY ---------- */
+  .gallery{ padding:90px 0; background:var(--cream); }
+  .gallery-grid{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 160px;
+    gap:16px;
+  }
+  .gallery-grid figure{
+    margin:0; position:relative; overflow:hidden; border-radius:18px;
+    box-shadow:0 10px 24px -12px rgba(74,14,40,.3);
+  }
+  .gallery-grid figure img{ width:100%; height:100%; object-fit:cover; transition:transform .6s ease; }
+  .gallery-grid figure:hover img{ transform:scale(1.08); }
+  .gallery-grid figure::after{
+    content:''; position:absolute; inset:0;
+    background:linear-gradient(120deg, transparent 35%, rgba(255,255,255,.55) 50%, transparent 65%);
+    transform:translateX(-120%);
+    transition:transform .8s ease;
+    pointer-events:none;
+  }
+  .gallery-grid figure:hover::after{ transform:translateX(120%); }
+  .g1{ grid-column:span 2; grid-row:span 2; }
+  .g2{ grid-column:span 2; grid-row:span 1; }
+  .g3{ grid-column:span 1; grid-row:span 1; }
+  .g4{ grid-column:span 1; grid-row:span 1; }
+  .gallery-note{ text-align:center; margin-top:34px; color:var(--wine-700); font-size:14.5px; }
+  .gallery-note a{ color:var(--cherry-600); font-weight:700; }
+
+  /* ---------- BOOK CTA BAND ---------- */
+  .book-band{
+    background:
+      radial-gradient(70% 140% at 15% 20%, rgba(255,255,255,.18), transparent 55%),
+      linear-gradient(120deg, var(--cherry-600), var(--wine-900));
+    padding:90px 0;
+    text-align:center;
+    color:#fff;
+  }
+  .book-band .eyebrow{ color:var(--gold-300); }
+  .book-band h2{ color:#fff; font-size:clamp(30px,4.6vw,48px); margin:8px 0 16px; }
+  .book-band p{ color:rgba(255,255,255,.85); max-width:520px; margin:0 auto 32px; font-size:16px; }
+  .book-band .btn-light:hover{ background:var(--gold-300); color:var(--wine-900); }
+
+  /* ---------- FOOTER ---------- */
+  footer{ background:var(--wine-900); color:rgba(255,255,255,.75); padding:56px 0 26px; }
+  .footer-grid{
+    display:grid; grid-template-columns: 1.3fr 1fr 1fr; gap:40px; padding-bottom:40px;
+    border-bottom:1px solid rgba(255,255,255,.12);
+  }
+  .footer-brand{ display:flex; align-items:center; gap:12px; margin-bottom:14px; }
+  .footer-brand img{ width:46px; height:46px; border-radius:50%; }
+  .footer-brand span{ font-family:'Mrs Sheppards',cursive; font-size:28px; color:#fff; }
+  footer h4{ color:#fff; font-family:'Manrope',sans-serif; font-size:13px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:16px; }
+  footer .foot-desc{ font-size:14.5px; max-width:280px; line-height:1.7; }
+  footer ul{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:11px; }
+  footer ul a{ font-size:14.5px; transition:color .2s; }
+  footer ul a:hover{ color:#fff; }
+  .social-row{ display:flex; gap:12px; margin-top:6px; }
+  .social-row a{
+    width:38px; height:38px; border-radius:50%; border:1px solid rgba(255,255,255,.3);
+    display:flex; align-items:center; justify-content:center; transition:all .25s ease;
+  }
+  .social-row a:hover{ background:#fff; color:var(--wine-900); border-color:#fff; }
+  .footer-bottom{ display:flex; justify-content:space-between; align-items:center; padding-top:22px; font-size:13px; flex-wrap:wrap; gap:10px; }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 900px){
+    nav.links{ display:none; }
+    .burger{ display:block; }
+    .hero-inner{ grid-template-columns:1fr; text-align:center; }
+    .hero-desc{ margin-left:auto; margin-right:auto; }
+    .hero-actions{ justify-content:center; }
+    .about-grid{ grid-template-columns:1fr; }
+    .about-photo{ max-width:380px; margin:0 auto; }
+    .gallery-grid{ grid-template-columns:repeat(2,1fr); grid-auto-rows:190px; }
+    .g1{ grid-column:span 2; }
+    .footer-grid{ grid-template-columns:1fr; gap:30px; }
+  }
+  @media (max-width:560px){
+    .menu-row .name{ font-size:14.5px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation:none !important; transition:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header>
+  <div class="nav container">
+    <a href="#top" class="brandmark">
+      <img src="images/logo.jpg" alt="Kelsi's Beauty Room logo">
+      <span>Kelsi's Beauty Room</span>
+    </a>
+    <nav class="links">
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="#" id="nav-book-btn" target="_blank" rel="noopener">Book Now</a>
+      <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div id="mobile-menu" style="display:none; flex-direction:column; gap:2px; padding:0 24px 18px; background:var(--blush-50);">
+    <a href="#services" style="padding:10px 0; font-weight:600;">Services</a>
+    <a href="#gallery" style="padding:10px 0; font-weight:600;">Gallery</a>
+    <a href="#about" style="padding:10px 0; font-weight:600;">About</a>
+    <a href="#contact" style="padding:10px 0; font-weight:600;">Contact</a>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="container hero-inner">
+    <div>
+      <div class="hero-eyebrow">welcome to</div>
+      <h1>Kelsi's<br><em>Beauty</em> Room</h1>
+      <div class="hero-tagline">Nails <span class="dot">•</span> Brows <span class="dot">•</span> Lashes <span class="dot">•</span> Skincare</div>
+      <p class="hero-desc">A cosy beauty space where every set is hand-finished with care. From glossy builder gel to feather-soft brow laminations — book in and let's make you glow.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#" id="hero-book-btn" target="_blank" rel="noopener">Book an appointment</a>
+        <a class="btn btn-ghost" href="#services">See the menu</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="ring"></div>
+      <div class="ring r2"></div>
+      <img class="logo-hero" src="images/logo.jpg" alt="Kelsi's Beauty Room — cherries and ribbon logo">
+    </div>
+  </div>
+</section>
+
+<!-- Ribbon divider (signature element) -->
+<div class="ribbon-wrap">
+  <svg class="ribbon" viewBox="0 0 1200 60" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 20 C 150 60, 300 0, 450 30 S 750 60, 900 20 S 1100 -10, 1200 25 V60 H0 Z" fill="#fffbfc"></path>
+    <path d="M0 22 C 150 58, 300 4, 450 30 S 750 58, 900 22 S 1100 -6, 1200 26" fill="none" stroke="#e21a5c" stroke-opacity="0.35" stroke-width="2"></path>
+  </svg>
+</div>
+
+<!-- ================= ABOUT ================= -->
+<section class="about" id="about">
+  <div class="container about-grid">
+    <div class="about-photo">
+      <img src="images/gallery-brow-2.jpg" alt="Feathered brow lamination result by Kelsi">
+    </div>
+    <div>
+      <span class="eyebrow">a little</span>
+      <h2>About the room</h2>
+      <p>Kelsi's Beauty Room is a nail and beauty studio specialising in nails, brow treatments, lash lifts and skincare. Every appointment is unhurried and detail-focused, whether you're after a subtle brow lamination or a full set of hand-painted nail art.</p>
+      <p>Booking is simple — pick your treatment, choose a time that suits you, and Kelsi will take care of the rest.</p>
+      <div class="patch-note">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c81450" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+        <p><strong>Please note:</strong> a patch test is required 24–48 hours before any new lash or brow tint treatment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">the menu</span>
+      <h2>Treatments &amp; Pricing</h2>
+      <p>Everything on offer at Kelsi's Beauty Room. Prices in GBP — mix &amp; match, or choose one of the combo deals below.</p>
+    </div>
+
+    <div class="tabs" role="tablist">
+      <button class="tab-btn active" data-tab="combos">Combos &amp; Packages</button>
+      <button class="tab-btn" data-tab="brows">Brows</button>
+      <button class="tab-btn" data-tab="lashes">Lashes</button>
+      <button class="tab-btn" data-tab="nails">Nail Treatments</button>
+    </div>
+
+    <!-- COMBOS -->
+    <div class="menu-card active" id="combos">
+      <div class="menu-group">
+        <div class="menu-group-title">Combo Deals</div>
+        <div class="menu-row"><div class="menu-row-wrap"><div class="name-line"><span class="name">Classic hands &amp; toes</span><span class="leader"></span><span class="price">£30</span></div><span class="desc">Gel polish on hands &amp; gel polish on toes</span></div></div>
+        <div class="menu-row"><div class="menu-row-wrap"><div class="name-line"><span class="name">Builder gel hands &amp; toes</span><span class="leader"></span><span class="price">£35</span></div><span class="desc">Builder gel on hands &amp; gel polish on toes</span></div></div>
+        <div class="menu-row"><div class="menu-row-wrap"><div class="name-line"><span class="name">Traditional lash lift &amp; tint + hybrid brows</span><span class="leader"></span><span class="price">£38</span></div><span class="desc">Traditional lash lift &amp; brow wax and hybrid tint</span></div></div>
+        <div class="menu-row"><div class="menu-row-wrap"><div class="name-line"><span class="name">Traditional lash lift &amp; tint + brow lamination</span><span class="leader"></span><span class="price">£40</span></div><span class="desc">Traditional lash lift and tint, brow lamination including brow wax &amp; tint</span></div></div>
+      </div>
+      <div class="menu-group">
+        <div class="menu-group-title">Full Packages</div>
+        <div class="menu-row"><div class="menu-row-wrap"><div class="name-line"><span class="name">The Ultimate Glow</span><span class="leader"></span><span class="price">£57</span></div><span class="desc">Builder gel, traditional lash lift and tint &amp; brow wax and tint</span></div></div>
+        <div class="menu-row"><div class="menu-row-wrap"><div class="name-line"><span class="name">The Full Glam</span><span class="leader"></span><span class="price">£60</span></div><span class="desc">Builder gel, traditional lash lift and tint &amp; brow wax and hybrid tint</span></div></div>
+        <div class="menu-row"><div class="menu-row-wrap"><div class="name-line"><span class="name">The Ultimate Luxe</span><span class="leader"></span><span class="price">£70</span></div><span class="desc">Builder gel, traditional lash lift and tint &amp; brow lamination including wax and tint</span></div></div>
+      </div>
+      <div class="upgrade-note">✦ Lash lifts can be upgraded to Korean lash lifts for +£5</div>
+    </div>
+
+    <!-- BROWS -->
+    <div class="menu-card" id="brows">
+      <div class="menu-group">
+        <div class="menu-group-title">Brows</div>
+        <div class="menu-row"><div class="name-line"><span class="name">Brow tint only</span><span class="leader"></span><span class="price">£8</span></div></div>
+        <div class="menu-row"><div class="name-line"><span class="name">Brow hybrid tint only</span><span class="leader"></span><span class="price">£10</span></div></div>
+        <div class="menu-row"><div class="name-line"><span class="name">Brow wax only</span><span class="leader"></span><span class="price">£8</span></div></div>
+        <div class="menu-row"><div class="name-line"><span class="name">Brow wax &amp; tint</span><span class="leader"></span><span class="price">£12</span></div></div>
+        <div class="menu-row"><div class="name-line"><span class="name">Brow wax &amp; hybrid tint</span><span class="leader"></span><span class="price">£15</span></div></div>
+        <div class="menu-row"><div class="menu-row-wrap"><div class="name-line"><span class="name">Brow lamination</span><span class="leader"></span><span class="price">£30</span></div><span class="desc">Including wax &amp; tint</span></div></div>
+        <div class="menu-row"><div class="menu-row-wrap"><div class="name-line"><span class="name">Brow lamination</span><span class="leader"></span><span class="price">£32</span></div><span class="desc">Including wax &amp; hybrid tint</span></div></div>
+      </div>
+      <div class="menu-group">
+        <div class="menu-group-title">Maintenance</div>
+        <div class="menu-row"><div class="name-line"><span class="name">Brow lamination maintenance</span><span class="leader"></span><span class="price">£15</span></div></div>
+      </div>
+    </div>
+
+    <!-- LASHES -->
+    <div class="menu-card" id="lashes">
+      <div class="menu-group">
+        <div class="menu-group-title">Lashes</div>
+        <div class="menu-row"><div class="name-line"><span class="name">Lash tint only</span><span class="leader"></span><span class="price">£8</span></div></div>
+        <div class="menu-row"><div class="name-line"><span class="name">Traditional lash lift &amp; tint</span><span class="leader"></span><span class="price">£27</span></div></div>
+        <div class="menu-row"><div class="name-line"><span class="name">Korean lash lift &amp; tint</span><span class="leader"></span><span class="price">£37</span></div></div>
+      </div>
+      <div class="menu-group">
+        <div class="menu-group-title">Maintenance</div>
+        <div class="menu-row"><div class="name-line"><span class="name">Lash lift maintenance</span><span class="leader"></span><span class="price">£15</span></div></div>
+        <div class="menu-row"><div class="name-line"><span class="name">Combo maintenance</span><span class="leader"></span><span class="price">£35</span></div></div>
+      </div>
+    </div>
+
+    <!-- NAILS -->
+    <div class="menu-card" id="nails">
+      <div class="menu-group">
+        <div class="menu-group-title">Nail Treatments</div>
+        <div class="menu-row"><div class="name-line"><span class="name">Manicure</span><span class="leader"></span><span class="price">£17</span></div></div>
+        <div class="menu-row"><div class="name-line"><span class="name">Pedicure</span><span class="leader"></span><span class="price">£20</span></div></div>
+        <div class="menu-row"><div class="name-line"><span class="name">Gel polish</span><span class="leader"></span><span class="price">£17</span></div></div>
+        <div class="menu-row"><div class="name-line"><span class="name">Gel polish on toes</span><span class="leader"></span><span class="price">£20</span></div></div>
+        <div class="menu-row"><div class="name-line"><span class="name">Builder gel</span><span class="leader"></span><span class="price">£23</span></div></div>
+        <div class="menu-row"><div class="name-line"><span class="name">Builder gel infill</span><span class="leader"></span><span class="price">£25</span></div></div>
+        <div class="menu-row"><div class="name-line"><span class="name">Hard gel overlay</span><span class="leader"></span><span class="price">£24</span></div></div>
+        <div class="menu-row"><div class="name-line"><span class="name">Hard gel infill</span><span class="leader"></span><span class="price">£26</span></div></div>
+        <div class="menu-row"><div class="name-line"><span class="name">Gel extensions</span><span class="leader"></span><span class="price">£28</span></div></div>
+        <div class="menu-row"><div class="name-line"><span class="name">Acrylic overlay</span><span class="leader"></span><span class="price">£26</span></div></div>
+        <div class="menu-row"><div class="name-line"><span class="name">Acrylic overlay infill</span><span class="leader"></span><span class="price">£28</span></div></div>
+        <div class="menu-row"><div class="name-line"><span class="name">Acrylic extensions</span><span class="leader"></span><span class="price">£30</span></div></div>
+        <div class="menu-row"><div class="name-line"><span class="name">Acrylic extension infill</span><span class="leader"></span><span class="price">£32</span></div></div>
+        <div class="menu-row"><div class="name-line"><span class="name">Acrylic sculpted extensions</span><span class="leader"></span><span class="price">£33</span></div></div>
+        <div class="menu-row"><div class="name-line"><span class="name">Acrylic sculpted infill</span><span class="leader"></span><span class="price">£35</span></div></div>
+        <div class="menu-row"><div class="name-line"><span class="name">Removal</span><span class="leader"></span><span class="price">£7</span></div></div>
+        <div class="menu-row"><div class="name-line"><span class="name">Cuticle oil</span><span class="leader"></span><span class="price">£7</span></div></div>
+      </div>
+      <div class="nailart-box">
+        <div><div class="tier">Nail Art — Tier 1</div><div class="from">from</div><div class="amt">£2</div></div>
+        <div><div class="tier">Nail Art — Tier 2</div><div class="from">from</div><div class="amt">£5</div></div>
+        <div><div class="tier">Nail Art — Tier 3</div><div class="from">from</div><div class="amt">£10</div></div>
+      </div>
+    </div>
+
+    <p class="gallery-note">Patch test required 24–48 hours before any new treatment. Book with <a href="https://www.instagram.com/kelsibeautyroom_/" target="_blank" rel="noopener">@nailsbykelsix</a> or via Fresha.</p>
+  </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">recent work</span>
+      <h2>The Gallery</h2>
+      <p>A peek at some recent sets, lifts and laminations from the studio.</p>
+    </div>
+    <div class="gallery-grid">
+      <figure class="g1"><img src="images/gallery-nails-floral.jpg" alt="Hand-painted 3D floral and shell nail art"></figure>
+      <figure class="g2"><img src="images/gallery-nails-dots.jpg" alt="Deep red polka dot nail set with French tip accent"></figure>
+      <figure class="g3"><img src="images/gallery-brow-1.jpg" alt="Natural brow lamination result"></figure>
+      <figure class="g4"><img src="images/gallery-brow-2.jpg" alt="Feathered fluffy brow lamination result"></figure>
+    </div>
+    <p class="gallery-note">See more on <a href="https://www.instagram.com/kelsibeautyroom_/" target="_blank" rel="noopener">Instagram</a> and <a href="https://www.facebook.com/Kelsibeautyroom" target="_blank" rel="noopener">Facebook</a>.</p>
+  </div>
+</section>
+
+<!-- ================= BOOK CTA ================= -->
+<section class="book-band" id="contact">
+  <div class="container">
+    <span class="eyebrow" style="color:var(--gold-300)">ready when you are</span>
+    <h2>Let's get you booked in</h2>
+    <p>Appointments are managed through Fresha — pick your treatment, choose a slot, and you're all set.</p>
+    <a class="btn btn-light" href="#" id="band-book-btn" target="_blank" rel="noopener">Book on Fresha</a>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="images/logo.jpg" alt="Kelsi's Beauty Room logo">
+          <span>Kelsi's Beauty Room</span>
+        </div>
+        <p class="foot-desc">Nails, brows, lashes &amp; skincare. Book with @nailsbykelsix or via Fresha.</p>
+        <div class="social-row">
+          <a href="https://www.instagram.com/kelsibeautyroom_/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.5" cy="6.5" r="1"></circle></svg>
+          </a>
+          <a href="https://www.facebook.com/Kelsibeautyroom" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#services">Services &amp; pricing</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Booking</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/kelsibeautyroom_/" target="_blank" rel="noopener">Message on Instagram</a></li>
+          <li><a href="https://www.facebook.com/Kelsibeautyroom" target="_blank" rel="noopener">Message on Facebook</a></li>
+          <li><a href="#" id="footer-book-btn" target="_blank" rel="noopener">Book via Fresha</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Kelsi's Beauty Room. All rights reserved.</span>
+      <span>Patch test required 24–48 hours before any new treatment.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ---- CONFIG: replace with Kelsi's real Fresha booking link ----
+  const BOOKING_URL = "https://www.fresha.com/"; // TODO: paste the exact Fresha booking page URL here
+
+  document.querySelectorAll('#nav-book-btn, #hero-book-btn, #band-book-btn, #footer-book-btn')
+    .forEach(el => el.setAttribute('href', BOOKING_URL));
+
+  // Mobile menu
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobile-menu');
+  burger.addEventListener('click', () => {
+    const isOpen = mobileMenu.style.display === 'flex';
+    mobileMenu.style.display = isOpen ? 'none' : 'flex';
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.style.display = 'none'));
+
+  // Tabs
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const menuCards = document.querySelectorAll('.menu-card');
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabBtns.forEach(b => b.classList.remove('active'));
+      menuCards.forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
